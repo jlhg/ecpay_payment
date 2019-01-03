@@ -42,6 +42,13 @@ module ECpayPayment
       return html
     end
 
+    def aio_check_out_googlepay(params:, invoice:{})
+      unsupport = ['HoldTradeAMT', 'IgnorePayment']
+      aiochkout_base_proc!(params: params, invoice: invoice, unsupport_param: unsupport, pay_method: 'GooglePay')
+      html = aiochkout_pos_proc!(params: params)
+      return html
+    end
+
     def aio_check_out_credit_divide(params:, invoice:{}, installment: , amount: )
       unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL']
       aiochkout_base_proc!(params: params, invoice: invoice, unsupport_param: unsupport, pay_method: 'Credit')

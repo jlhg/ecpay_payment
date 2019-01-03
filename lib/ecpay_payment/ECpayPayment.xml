@@ -45,7 +45,7 @@
       </param>
       <param  type="Opt"  require="1" name="ChoosePayment">
         <option>ALL</option>
-        <option>AndroidPay</option>
+        <option>GooglePay</option>
         <option>Credit</option>
         <condparam owner="Credit">
         <!--Reqirement checking of following credit card related sub parameter would be handled in
@@ -121,9 +121,9 @@
         <option>CVS</option>
         <condparam owner="CVS">
             <param type="Int"  require="0" name="StoreExpireDate">
-                <mode>BETWEEN</mode>
-                <maximum>99</maximum>
-                <minimal>1</minimal>
+              <mode>GE</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
+              <maximum></maximum>
+              <minimal>1</minimal>
             </param>
             <param type="String"  require="0" name="Desc_1">
                 <pattern>^.{0,20}$</pattern>
@@ -147,9 +147,9 @@
         <option>BARCODE</option>
         <condparam owner="BARCODE">
             <param type="Int"  require="0" name="StoreExpireDate">
-                <mode>BETWEEN</mode>
-                <maximum>99</maximum>
-                <minimal>1</minimal>
+              <mode>GE</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
+              <maximum></maximum>
+              <minimal>1</minimal>
             </param>
             <param type="String"  require="0" name="Desc_1">
                 <pattern>^.{0,20}$</pattern>
